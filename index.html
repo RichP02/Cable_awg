@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Calibre de Cable</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <h1>Calculadora de Calibre de Cable</h1>
+
+        <form id="formCalibre">
+
+            <div class="grupo">
+                <label for="potencia">Potencia (W)</label>
+                <input type="number" id="potencia" required>
+            </div>
+
+            <div class="grupo">
+                <label for="tension">Tensión (V)</label>
+                <input type="number" id="tension" required>
+            </div>
+
+            <div class="grupo">
+                <label for="cos">Factor de Potencia (Cos φ)</label>
+                <input type="number" id="cos" step="0.01" required>
+            </div>
+
+            <div class="grupo">
+                <label for="longitud">Longitud del tramo más largo (m)</label>
+                <input type="number" id="longitud" step="0.01" required>
+            </div>
+
+            <div class="grupo">
+                <label for="temperatura">Temperatura promedio (°C)</label>
+                <input type="number" id="temperatura" required>
+            </div>
+
+            <div class="grupo">
+                <label for="agrupamiento">Cantidad de cables juntos</label>
+                <input type="number" id="agrupamiento" required>
+            </div>
+
+            <div class="grupo">
+                <label for="tierra">¿Lleva tierra?</label>
+                <select id="tierra">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="grupo" id="motorGrupo">
+                <label for="motor">
+                    ¿Hay cocina, circuito de fuerza o electrodomésticos?
+                </label>
+                <select id="motor">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </div>
+
+            <button type="button" id="calcular">
+                Calcular
+            </button>
+        </form>
+
+        <hr>
+
+        <section id="resultados">
+
+            <h2>Resultados</h2>
+
+            <div class="resultado">
+                <p><strong>Potencia Aparente (S):</strong> <span id="s"></span></p>
+                <p><strong>Corriente Nominal:</strong> <span id="corrienteNominal"></span></p>
+                <p><strong>Corriente por Agrupamiento:</strong> <span id="corrienteAgrup"></span></p>
+                <p><strong>Corriente por Temperatura:</strong> <span id="corrienteTemp"></span></p>
+                <p><strong>Caída de Tensión:</strong> <span id="caidaTension"></span></p>
+            </div>
+
+            <hr>
+
+            <div class="resultado">
+                <p><strong>Calibre por Amperaje:</strong> <span id="calibreAmperaje"></span></p>
+                <p><strong>Calibre por Caída de Tensión:</strong> <span id="calibreTension"></span></p>
+                <p><strong>Calibre Final:</strong> <span id="calibreFinal"></span></p>
+            </div>
+
+            <div id="notaNorma" class="oculto">
+                <p>
+                    <strong>Nota:</strong>
+                    El calibre mínimo para circuitos de fuerza, cocina y
+                    electrodomésticos debe ser 12 AWG
+                    (NOM-001-SEDE).
+                </p>
+            </div>
+
+            <hr>
+
+            <div class="resultado">
+                <p><strong>Calibre de Tierra:</strong> <span id="calibreTierra"></span></p>
+                <p><strong>Grosor Total:</strong> <span id="grosorTotal"></span></p>
+                <p><strong>Tubería Recomendada:</strong> <span id="tuberia"></span></p>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
